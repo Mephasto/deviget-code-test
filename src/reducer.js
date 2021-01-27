@@ -2,16 +2,16 @@ const initialState = {
     posts: [],
     activePost: [],
     readPosts: [],
-    dismissedPosts: [],
-    sidebar: false
+    dismissedPosts: []
 }
 
 function reducer (state = initialState, action) {
     switch (action.type) {
         case "LOAD_POSTS":
+            console.log('Posts loaded!')
             return {
                 ...state,
-                posts: action.getPosts
+                posts: action.posts
             }
         default:
             return state
