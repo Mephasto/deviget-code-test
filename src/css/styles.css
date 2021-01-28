@@ -35,6 +35,9 @@ ul li {
 .posts_nav .nav_posts_list .post {
   border-bottom: 1px solid #aaa;
 }
+.posts_nav .nav_posts_list .post.dismissed {
+  display: none;
+}
 .posts_nav .nav_posts_list .post .post_header {
   margin-top: 4px;
   width: 300px;

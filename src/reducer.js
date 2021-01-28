@@ -8,10 +8,14 @@ const initialState = {
 function reducer (state = initialState, action) {
     switch (action.type) {
         case "LOAD_POSTS":
-            console.log('Posts loaded!')
             return {
                 ...state,
                 posts: action.posts
+            }
+        case "DISMISS_POST":
+            return {
+                ...state,
+                dismissedPosts: [ ...state.dismissedPosts, action.postId ]
             }
         default:
             return state

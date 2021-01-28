@@ -1,3 +1,9 @@
+
+export const dismissPost = postId => ({
+    type: 'DISMISS_POST',
+    postId
+})
+
 export function fetchPosts() {
     return async(dispatch) => {
         // Fetch from reddit top posts
@@ -10,7 +16,7 @@ export function fetchPosts() {
         // format posts and dispatch them to reducer
         function dispatchPosts (result) {
             const posts = result.data.children // trim non posts data from json
-            dispatch( { 
+            dispatch({ 
                 type: 'LOAD_POSTS',
                 posts
             })
