@@ -1,0 +1,119 @@
+// Sass Variables
+$posts_list_width: 312px
+
+// Reseter
+*
+    font-family: Arial, Helvetica, sans-serif
+ul
+    padding: 0
+    margin: 0
+    li
+        list-style: none
+        padding: 0
+        margin: 0
+
+// Posts Navigation
+.posts_nav
+    color: #eee
+    width: $posts_list_width
+    display: flex
+    flex-direction: column
+    height: 100vh
+    background: #333
+
+    // Navigation Header
+    .nav_header
+        width: $posts_list_width
+        text-align: center
+        font-size: 1em
+        padding: 8px 0
+        margin: 0
+
+    // Navigation Post Lists
+    .nav_posts_list
+        padding: 6px
+        overflow: hidden
+        overflow-y: scroll
+        // List item
+        .post
+            border-bottom: 1px solid #aaa
+            // Item Header
+            .post_header
+                margin-top: 4px
+                width: 300px
+                height: 30px
+                overflow: hidden
+                .post_author
+                    float: left
+                    margin-right: 8px
+                .post_age
+                    position: relative
+                    top: 4px
+                    float: right
+                    font-size: 0.7em
+                    color: #999
+                .post_state
+                    float: left
+                    width: 10px
+                    height: 10px
+                    border-radius: 5px
+                    background-color: #55f
+                    margin: 8px
+                &.read
+                    color: #ccc
+            // Item Body
+            .post_body
+                display: flex
+                align-items: center
+                width: 100%
+                position: relative
+                .title
+                    padding-left: 1em
+                    font-size: 0.8em
+                .thumbnail_placeholder
+                    min-width: 100px
+                    max-width: 100px
+                    min-height: 100px
+                    max-height: 100px
+                    overflow: hidden
+                    img
+                        height: 100%
+                        width: 100%
+            // Item Footer
+            .post_footer
+                width: 300px
+                height: 30px
+                margin: 10px 0 4px 0
+                .post_dismiss
+                    float: left
+                    margin-right: 80px
+                    .dismiss_icon
+                        position: relative
+                        top: -2px
+                        display: inline-block
+                        font-size: 0.9em
+                        border: 2px solid orange
+                        color: orange
+                        width: 22px
+                        height: 22px
+                        border-radius: 15px
+                        line-height: 14px
+                        text-align: center
+                    .dismiss_label
+                        padding: 0px 0px 0px 5px
+                        font-size: 0.9em
+                .post_comments
+                    position: relative
+                    top: 4px
+                    float: right
+                    text-align: right
+                    color: orange
+                    font-size: 0.8em
+    
+    // Navigation Footer
+    .nav_footer
+        .post_dismiss_all
+            padding: 10px 0
+            color: orange
+            text-align: center
+            font-size: 1em

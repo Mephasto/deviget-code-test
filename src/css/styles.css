@@ -1,0 +1,128 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.posts_nav {
+  color: #eee;
+  width: 312px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #333;
+}
+.posts_nav .nav_header {
+  width: 312px;
+  text-align: center;
+  font-size: 1em;
+  padding: 8px 0;
+  margin: 0;
+}
+.posts_nav .nav_posts_list {
+  padding: 6px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.posts_nav .nav_posts_list .post {
+  border-bottom: 1px solid #aaa;
+}
+.posts_nav .nav_posts_list .post .post_header {
+  margin-top: 4px;
+  width: 300px;
+  height: 30px;
+  overflow: hidden;
+}
+.posts_nav .nav_posts_list .post .post_header .post_author {
+  float: left;
+  margin-right: 8px;
+}
+.posts_nav .nav_posts_list .post .post_header .post_age {
+  position: relative;
+  top: 4px;
+  float: right;
+  font-size: 0.7em;
+  color: #999;
+}
+.posts_nav .nav_posts_list .post .post_header .post_state {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #55f;
+  margin: 8px;
+}
+.posts_nav .nav_posts_list .post .post_header.read {
+  color: #ccc;
+}
+.posts_nav .nav_posts_list .post .post_body {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.posts_nav .nav_posts_list .post .post_body .title {
+  padding-left: 1em;
+  font-size: 0.8em;
+}
+.posts_nav .nav_posts_list .post .post_body .thumbnail_placeholder {
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+.posts_nav .nav_posts_list .post .post_body .thumbnail_placeholder img {
+  height: 100%;
+  width: 100%;
+}
+.posts_nav .nav_posts_list .post .post_footer {
+  width: 300px;
+  height: 30px;
+  margin: 10px 0 4px 0;
+}
+.posts_nav .nav_posts_list .post .post_footer .post_dismiss {
+  float: left;
+  margin-right: 80px;
+}
+.posts_nav .nav_posts_list .post .post_footer .post_dismiss .dismiss_icon {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  font-size: 0.9em;
+  border: 2px solid orange;
+  color: orange;
+  width: 22px;
+  height: 22px;
+  border-radius: 15px;
+  line-height: 14px;
+  text-align: center;
+}
+.posts_nav .nav_posts_list .post .post_footer .post_dismiss .dismiss_label {
+  padding: 0px 0px 0px 5px;
+  font-size: 0.9em;
+}
+.posts_nav .nav_posts_list .post .post_footer .post_comments {
+  position: relative;
+  top: 4px;
+  float: right;
+  text-align: right;
+  color: orange;
+  font-size: 0.8em;
+}
+.posts_nav .nav_footer .post_dismiss_all {
+  padding: 10px 0;
+  color: orange;
+  text-align: center;
+  font-size: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */
