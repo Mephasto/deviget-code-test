@@ -38,7 +38,10 @@ class App extends React.Component {
                     dismissPost={this.dismissPost}
                 />
             )
+        }else{
+            return('')
         } 
+    }
 
     render() {
         const { posts, activePost, dismissedPosts } = this.props
