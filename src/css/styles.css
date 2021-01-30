@@ -12,6 +12,27 @@ ul li {
   margin: 0;
 }
 
+.layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.loader {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.active-post {
+  width: 100%;
+  text-align: center;
+}
+.active-post .author {
+  margin: 40px 0;
+}
+.active-post .title {
+  margin: 40px 0;
+}
+
 .posts_nav {
   color: #eee;
   width: 312px;
@@ -33,9 +54,15 @@ ul li {
   overflow-y: scroll;
 }
 .posts_nav .nav_posts_list .post {
+  position: relative;
+  left: 0;
   border-bottom: 1px solid #aaa;
+  transition: left 600ms ease-in-out;
 }
-.posts_nav .nav_posts_list .post.dismissed {
+.posts_nav .nav_posts_list .post.post-exit {
+  left: -400px;
+}
+.posts_nav .nav_posts_list .post.post-removed {
   display: none;
 }
 .posts_nav .nav_posts_list .post .post_header {

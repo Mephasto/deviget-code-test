@@ -2,7 +2,8 @@ const initialState = {
     posts: [],
     activePost: [],
     readPosts: [],
-    dismissedPosts: []
+    dismissedPosts: [],
+    spinner: 'show'
 }
 
 function reducer (state = initialState, action) {
@@ -16,6 +17,16 @@ function reducer (state = initialState, action) {
             return {
                 ...state,
                 dismissedPosts: [ ...state.dismissedPosts, action.postId ]
+            }
+        case "ACTIVE_POST":
+            return {
+                ...state,
+                activePost: action.activePost
+            }
+        case "TOGGLE_SPINNER":
+            return {
+                ...state,
+                spinner: action.toggle
             }
         default:
             return state
