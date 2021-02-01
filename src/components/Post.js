@@ -22,7 +22,7 @@ class Post extends React.Component {
                         ''
                     ) : (
                         <div className="thumbnail_placeholder">
-                            <img src={this.props.post.data.thumbnail} title={this.props.post.data.title}></img>
+                            <img src={this.props.post.data.thumbnail} alt={this.props.post.data.title}></img>
                         </div>
                     )}
                     <p className="title">{this.props.post.data.title}</p>

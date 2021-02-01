@@ -28,7 +28,7 @@ class App extends React.Component {
     dismissAllPosts = (posts) => {
         // call helper to get an array of Ids from posts
         const postsIds = getAllPostsIds(posts)
-        // select all posts (DOM) and add a class for remove animation
+        // select all posts (DOM), adds a class for remove animation
         let e = document.getElementsByClassName("post")
         for (var i = 0; i < e.length; i++){
             e[i].classList.add('all-post-exit')
@@ -68,7 +68,6 @@ class App extends React.Component {
     }
 
     toggleSidebar = (status) => {
-        console.log(status)
         this.props.dispatch(actions.toggleSidebar(status));
     }
 
@@ -78,7 +77,7 @@ class App extends React.Component {
             <React.Fragment>
                 <div className="layout">
                     <Swipeable className={`posts_nav ${sidebar ? 'expanded' : ''}`} trackMouse onSwipedRight={() => this.toggleSidebar(true)} onSwipedLeft={() => this.toggleSidebar(false)}>
-                        <div class="wrapper">
+                        <div className="wrapper">
                             <h1 className="nav_header">Reddit Posts</h1>
                             <ul className="nav_posts_list">
                             {posts.map((post) => (

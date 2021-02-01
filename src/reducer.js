@@ -5,7 +5,7 @@ const initialState = {
     activePost: [],
     readPosts: [],
     dismissedPosts: [],
-    sidebar: false
+    sidebar: true
 }
 
 function reducer (state = initialState, action) {
@@ -21,12 +21,9 @@ function reducer (state = initialState, action) {
                 dismissedPosts: [ ...state.dismissedPosts, action.postId ]
             }
         case "DISMISS_ALL_POSTS":
-            // make a clean array of ids
-            let allPosts=[]
-            action.postsIds.map((postId) => { allPosts.push(postId) })
             return {
                 ...state,
-                dismissedPosts: allPosts
+                dismissedPosts: action.postsIds
             }
         case "ACTIVE_POST":
             return {
