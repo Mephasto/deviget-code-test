@@ -19,6 +19,11 @@ export const postRead = postId => ({
     postId
 })
 
+export const toggleSidebar = status => ({
+    type: 'SIDEBAR_TOGGLED',
+    status
+})
+
 export function fetchPosts() {
     return async(dispatch) => {
         // Fetch from reddit top posts

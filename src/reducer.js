@@ -4,7 +4,8 @@ const initialState = {
     posts: [],
     activePost: [],
     readPosts: [],
-    dismissedPosts: []
+    dismissedPosts: [],
+    sidebar: false
 }
 
 function reducer (state = initialState, action) {
@@ -36,6 +37,11 @@ function reducer (state = initialState, action) {
             return {
                 ...state,
                 readPosts: [ ...state.readPosts, action.postId ]
+            }
+        case "SIDEBAR_TOGGLED":
+            return {
+                ...state,
+                sidebar: action.status
             }
         default:
             return state

@@ -43,7 +43,14 @@ ul li {
 
 .posts_nav {
   color: #eee;
-  width: 312px;
+  width: 78px;
+  -webkit-transition: width 300ms ease-in;
+  transition: width 300ms ease-in;
+}
+
+.posts_nav .wrapper {
+  padding-bottom: 40px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,9 +58,20 @@ ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
   background: #333;
-  padding-bottom: 40px;
+  position: relative;
+  left: -312px;
+  -webkit-transition: left 300ms ease-in-out;
+  transition: left 300ms ease-in-out;
+}
+
+.posts_nav.expanded {
+  width: 312px;
+}
+
+.posts_nav.expanded .wrapper {
+  width: 312px;
+  left: 0px;
 }
 
 .posts_nav .nav_header {
@@ -68,6 +86,7 @@ ul li {
   padding: 6px;
   overflow: hidden;
   overflow-y: scroll;
+  float: left;
 }
 
 .posts_nav .nav_posts_list .post {

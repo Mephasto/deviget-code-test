@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import Moment from 'react-moment'
 
 class Post extends React.Component {

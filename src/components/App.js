@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import Post from './Post'
 import getAllPostsIds from '../helpers/getAllPostsIds'
+import { Swipeable } from 'react-swipeable'
 import '../css/styles.css'
 
 class App extends React.Component {
@@ -66,24 +67,31 @@ class App extends React.Component {
         }
     }
 
+    toggleSidebar = (status) => {
+        console.log(status)
+        this.props.dispatch(actions.toggleSidebar(status));
+    }
+
     render() {
-        const { posts, activePost } = this.props
+        const { posts, activePost, sidebar } = this.props
         return(
             <React.Fragment>
                 <div className="layout">
-                    <div className="posts_nav">
-                        <h1 className="nav_header">Reddit Posts</h1>
-                        <ul className="nav_posts_list">
-                        {posts.map((post) => (
-                            this.renderListPost(post)
-                        ))}
-                        </ul>
-                        <div className="nav_footer">
-                            <div className="post_dismiss_all" onClick={() => this.dismissAllPosts(posts)}>
-                                <span className="dismiss_label">Dismiss All Posts</span>
+                    <Swipeable className={`posts_nav ${sidebar ? 'expanded' : ''}`} trackMouse onSwipedRight={() => this.toggleSidebar(true)} onSwipedLeft={() => this.toggleSidebar(false)}>
+                        <div class="wrapper">
+                            <h1 className="nav_header">Reddit Posts</h1>
+                            <ul className="nav_posts_list">
+                            {posts.map((post) => (
+                                this.renderListPost(post)
+                            ))}
+                            </ul>
+                            <div className="nav_footer">
+                                <div className="post_dismiss_all" onClick={() => this.dismissAllPosts(posts)}>
+                                    <span className="dismiss_label">Dismiss All Posts</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Swipeable>
                     <div className="active-post">
                         <h1 className="author">{activePost.author}</h1>
                         {activePost.url_overridden_by_dest !== null ? (
@@ -105,7 +113,8 @@ const mapStateToProps = state => ({
     posts: state.posts,
     dismissedPosts: state.dismissedPosts,
     activePost: state.activePost,
-    readPosts: state.readPosts
+    readPosts: state.readPosts,
+    sidebar: state.sidebar
 })
 
 connect(mapStateToProps)
