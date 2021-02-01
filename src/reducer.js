@@ -1,9 +1,10 @@
+import { activePost } from "./actions"
+
 const initialState = {
     posts: [],
     activePost: [],
     readPosts: [],
-    dismissedPosts: [],
-    spinner: 'show'
+    dismissedPosts: []
 }
 
 function reducer (state = initialState, action) {
@@ -18,15 +19,23 @@ function reducer (state = initialState, action) {
                 ...state,
                 dismissedPosts: [ ...state.dismissedPosts, action.postId ]
             }
+        case "DISMISS_ALL_POSTS":
+            // make a clean array of ids
+            let allPosts=[]
+            action.postsIds.map((postId) => { allPosts.push(postId) })
+            return {
+                ...state,
+                dismissedPosts: allPosts
+            }
         case "ACTIVE_POST":
             return {
                 ...state,
                 activePost: action.activePost
             }
-        case "TOGGLE_SPINNER":
+        case "POST_READ":
             return {
                 ...state,
-                spinner: action.toggle
+                readPosts: [ ...state.readPosts, action.postId ]
             }
         default:
             return state

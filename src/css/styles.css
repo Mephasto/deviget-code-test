@@ -6,6 +6,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 ul li {
   list-style: none;
   padding: 0;
@@ -13,8 +14,13 @@ ul li {
 }
 
 .layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .loader {
@@ -26,9 +32,11 @@ ul li {
   width: 100%;
   text-align: center;
 }
+
 .active-post .author {
   margin: 40px 0;
 }
+
 .active-post .title {
   margin: 40px 0;
 }
@@ -36,11 +44,18 @@ ul li {
 .posts_nav {
   color: #eee;
   width: 312px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100vh;
   background: #333;
+  padding-bottom: 40px;
 }
+
 .posts_nav .nav_header {
   width: 312px;
   text-align: center;
@@ -48,33 +63,54 @@ ul li {
   padding: 8px 0;
   margin: 0;
 }
+
 .posts_nav .nav_posts_list {
   padding: 6px;
   overflow: hidden;
   overflow-y: scroll;
 }
+
 .posts_nav .nav_posts_list .post {
   position: relative;
   left: 0;
   border-bottom: 1px solid #aaa;
-  transition: left 600ms ease-in-out;
+  -webkit-transition: left 600ms ease-in-out, background 200ms ease-out, -webkit-transform 600ms ease-in-out;
+  transition: left 600ms ease-in-out, background 200ms ease-out, -webkit-transform 600ms ease-in-out;
+  transition: left 600ms ease-in-out, transform 600ms ease-in-out, background 200ms ease-out;
+  transition: left 600ms ease-in-out, transform 600ms ease-in-out, background 200ms ease-out, -webkit-transform 600ms ease-in-out;
+  background: rgba(0, 0, 0, 0);
 }
+
+.posts_nav .nav_posts_list .post:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .posts_nav .nav_posts_list .post.post-exit {
   left: -400px;
 }
+
 .posts_nav .nav_posts_list .post.post-removed {
   display: none;
 }
+
+.posts_nav .nav_posts_list .post.all-post-exit {
+  left: -400px;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
 .posts_nav .nav_posts_list .post .post_header {
   margin-top: 4px;
   width: 300px;
   height: 30px;
   overflow: hidden;
 }
+
 .posts_nav .nav_posts_list .post .post_header .post_author {
   float: left;
   margin-right: 8px;
 }
+
 .posts_nav .nav_posts_list .post .post_header .post_age {
   position: relative;
   top: 4px;
@@ -82,48 +118,70 @@ ul li {
   font-size: 0.7em;
   color: #999;
 }
-.posts_nav .nav_posts_list .post .post_header .post_state {
+
+.posts_nav .nav_posts_list .post .post_header .post_state_unread {
   float: left;
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: #55f;
+  background-color: #d3f;
   margin: 8px;
 }
-.posts_nav .nav_posts_list .post .post_header.read {
-  color: #ccc;
+
+.posts_nav .nav_posts_list .post .post_header .post_state_read {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #232;
+  margin: 8px;
 }
+
 .posts_nav .nav_posts_list .post .post_body {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   position: relative;
 }
+
 .posts_nav .nav_posts_list .post .post_body .title {
+  cursor: pointer;
   padding-left: 1em;
   font-size: 0.8em;
 }
+
 .posts_nav .nav_posts_list .post .post_body .thumbnail_placeholder {
   min-width: 100px;
   max-width: 100px;
   min-height: 100px;
   max-height: 100px;
   overflow: hidden;
+  cursor: pointer;
 }
+
 .posts_nav .nav_posts_list .post .post_body .thumbnail_placeholder img {
   height: 100%;
   width: 100%;
 }
+
 .posts_nav .nav_posts_list .post .post_footer {
   width: 300px;
   height: 30px;
   margin: 10px 0 4px 0;
 }
+
 .posts_nav .nav_posts_list .post .post_footer .post_dismiss {
   float: left;
   margin-right: 80px;
 }
+
 .posts_nav .nav_posts_list .post .post_footer .post_dismiss .dismiss_icon {
+  cursor: pointer;
   position: relative;
   top: -2px;
   display: inline-block;
@@ -136,10 +194,13 @@ ul li {
   line-height: 14px;
   text-align: center;
 }
+
 .posts_nav .nav_posts_list .post .post_footer .post_dismiss .dismiss_label {
+  cursor: pointer;
   padding: 0px 0px 0px 5px;
   font-size: 0.9em;
 }
+
 .posts_nav .nav_posts_list .post .post_footer .post_comments {
   position: relative;
   top: 4px;
@@ -148,11 +209,19 @@ ul li {
   color: orange;
   font-size: 0.8em;
 }
+
 .posts_nav .nav_footer .post_dismiss_all {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  width: 312px;
   padding: 10px 0;
   color: orange;
   text-align: center;
   font-size: 1em;
 }
 
+.posts_nav .nav_footer .post_dismiss_all:hover {
+  background-color: #555;
+}
 /*# sourceMappingURL=styles.css.map */

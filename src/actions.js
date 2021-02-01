@@ -1,4 +1,9 @@
 
+export const dismissAllPosts = postsIds => ({
+    type: 'DISMISS_ALL_POSTS',
+    postsIds
+})
+
 export const dismissPost = postId => ({
     type: 'DISMISS_POST',
     postId
@@ -9,9 +14,9 @@ export const activePost = activePost => ({
     activePost
 })
 
-export const toggleSpinner = toggle => ({
-    type: 'REMOVE_SPINNER',
-    toggle
+export const postRead = postId => ({
+    type: 'POST_READ',
+    postId
 })
 
 export function fetchPosts() {

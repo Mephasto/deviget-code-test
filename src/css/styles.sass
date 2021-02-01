@@ -38,6 +38,7 @@ ul
     flex-direction: column
     height: 100vh
     background: #333
+    padding-bottom: 40px
 
     // Navigation Header
     .nav_header
@@ -57,11 +58,17 @@ ul
             position: relative
             left: 0
             border-bottom: 1px solid #aaa
-            transition: left 600ms ease-in-out
+            transition: left 600ms ease-in-out, transform 600ms ease-in-out, background 200ms ease-out
+            background: rgba(0,0,0,0)
+            &:active
+                background: rgba(255,255,255,0.25)
             &.post-exit
                 left: -400px
             &.post-removed
                 display: none
+            &.all-post-exit
+                left: -400px
+                transform: scale(0.5)
             // Item Header
             .post_header
                 margin-top: 4px
@@ -77,22 +84,29 @@ ul
                     float: right
                     font-size: 0.7em
                     color: #999
-                .post_state
+                .post_state_unread
                     float: left
                     width: 10px
                     height: 10px
                     border-radius: 5px
-                    background-color: #55f
+                    background-color: #d3f
                     margin: 8px
-                &.read
-                    color: #ccc
+                .post_state_read
+                    float: left
+                    width: 10px
+                    height: 10px
+                    border-radius: 5px
+                    background-color: #232
+                    margin: 8px
             // Item Body
             .post_body
+                cursor: pointer
                 display: flex
                 align-items: center
                 width: 100%
                 position: relative
                 .title
+                    cursor: pointer
                     padding-left: 1em
                     font-size: 0.8em
                 .thumbnail_placeholder
@@ -101,6 +115,7 @@ ul
                     min-height: 100px
                     max-height: 100px
                     overflow: hidden
+                    cursor: pointer
                     img
                         height: 100%
                         width: 100%
@@ -113,6 +128,7 @@ ul
                     float: left
                     margin-right: 80px
                     .dismiss_icon
+                        cursor: pointer
                         position: relative
                         top: -2px
                         display: inline-block
@@ -125,6 +141,7 @@ ul
                         line-height: 14px
                         text-align: center
                     .dismiss_label
+                        cursor: pointer
                         padding: 0px 0px 0px 5px
                         font-size: 0.9em
                 .post_comments
@@ -138,7 +155,13 @@ ul
     // Navigation Footer
     .nav_footer
         .post_dismiss_all
+            cursor: pointer
+            position: absolute
+            bottom: 0
+            width: $posts_list_width
             padding: 10px 0
             color: orange
             text-align: center
             font-size: 1em
+        .post_dismiss_all:hover
+            background-color: #555
